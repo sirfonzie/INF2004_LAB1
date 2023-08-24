@@ -1,4 +1,4 @@
-# LAB 1: Microcontroller and its Development Environment
+![image](https://github.com/sirfonzie/INF2004_LAB1/assets/33278390/6d9ee28d-3718-4be1-be51-7f7e3e830069)# LAB 1: Microcontroller and its Development Environment
 
 
 **OBJECTIVES**
@@ -28,7 +28,14 @@ In this lab session, we learned about the development platform Raspberry Pico an
 
 The Raspberry Pi Pico is an affordable microcontroller board developed by the Raspberry Pi Foundation, ideal for electronics projects. It features a dual-core ARM Cortex-M0+ processor, 26 GPIO pins, and supports multiple programming languages. However, it lacks built-in wireless connectivity. The Raspberry Pi Pico Wireless (Pico W) is an enhanced version of the Pico, with built-in Wi-Fi and Bluetooth. This makes it suitable for IoT and wireless communication projects while maintaining compatibility with Pico's programming languages and GPIO pins.
 
-![Screenshot of a Raspberry Pi Pico.](https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf)
+The Raspberry Pi Pico family currently consists of four boards; Raspberry Pi Pico (far left), Pico H (middle left), Pico W (middle right), and Pico WH (far right).
+![Images of the various Raspberry Pi Pico](https://www.raspberrypi.com/documentation/microcontrollers/images/four_picos.jpg)
+
+The following is the pin out for the Raspberry Pi Pico
+![Screenshot of a Raspberry Pi Pico](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg)
+
+The following is the pin out for the Raspberry Pi Pico W
+![Screenshot of a Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg)
 
 The most important documents of an embedded system are, among others, datasheets, user guides, technical reference manuals, application notes, errata or schematics. Therefore, every embedded system comes with many documentation files. All the necessary files for this lab and subsequent labs can be found on the Raspberry Foundation site and supplementary documents will be provided on the course xsite website. It is essential to have access to all parts of the documentation to use the functionality of an embedded system to its fullest extent. Details of the hardware can be found [here](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html).
 
