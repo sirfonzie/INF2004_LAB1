@@ -10,7 +10,7 @@ int main() {
 #ifndef PICO_DEFAULT_LED_PIN
 #warning blink example requires a board with a regular LED
 #else
-	uint a = 1;
+    uint a = 1;
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
@@ -20,7 +20,7 @@ int main() {
         gpio_put(LED_PIN, 0);
         sleep_ms(a<<1);
 		
-		if(a=2048) a==0;
+	if(a=2048) a==0;
     }
 #endif
 }
