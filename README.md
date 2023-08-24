@@ -1,20 +1,16 @@
-![image](https://github.com/sirfonzie/INF2004_LAB1/assets/33278390/6d9ee28d-3718-4be1-be51-7f7e3e830069)# LAB 1: Microcontroller and its Development Environment
-
+# LAB 1: Microcontroller and its Development Environment
 
 **OBJECTIVES**
 - To setup and get you familiarised with the development environment for Raspberry Pi Pico.
 - To get you familiarised with the Raspberry Pi Pico development board.
-
 
 **EQUIPMENT** 
 1.	A laptop that has the Pico C/C++ SDK installed
 2.	Raspberry Pico or the wireless variant
 3.	Micro-USB Cable 
 
-
 > [NOTE]
 > Only students wearing fully covered shoes are allowed in the lab due to safety. 
-
 
 ## **INTRODUCTION** 
 
