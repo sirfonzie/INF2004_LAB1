@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
 int main() {
     stdio_init_all();
 
@@ -64,6 +66,11 @@ while (true) {
     printf("q << 1 = %d\n", q << 1); // Left shift
     printf("q >> 1 = %d\n", q >> 1); // Right shift
 
+    // Macros
+    printf("Macros (num1 = 10, num2 = 15)\n");
+    int num1 = 10, num2 = 15;
+    int max = MAX(num1, num2);
+    printf("The maximum of %d and %d is %d\n", num1, num2, max);
 }
     return 0;
 }
