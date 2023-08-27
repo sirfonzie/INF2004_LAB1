@@ -71,7 +71,7 @@ Depending on your preferences and requirements, there are several methods to upl
 
 ## **EXERCISE #1**
 
-In this [basic code](basic.c) example, we embark on a journey to understand various types of operators in the C programming language. By executing this code, we gain insights into arithmetic, relational, logical, and bitwise operators, each playing a distinct role in manipulating and evaluating data.
+In this [basic code](basic.c.c) example, we embark on a journey to understand various types of operators in the C programming language. By executing this code, we gain insights into arithmetic, relational, logical, and bitwise operators, each playing a distinct role in manipulating and evaluating data.
 
 
 ## **EXERCISE #2**
