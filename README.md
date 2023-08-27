@@ -69,9 +69,15 @@ Depending on your preferences and requirements, there are several methods to upl
 
 **In this lab, we will use method #1 (Drag and Drop).**
 
-## **EXERCISE**
+## **EXERCISE #1**
+
+In this [basic code](basic.c) example, we embark on a journey to understand various types of operators in the C programming language. By executing this code, we gain insights into arithmetic, relational, logical, and bitwise operators, each playing a distinct role in manipulating and evaluating data.
+
+
+## **EXERCISE #2**
 
 This [blinky code](blinky.c) is supposed to blink an LED connected to the GPIO pin. The LED blinks at a rate determined by the "a" variable, which starts at 1 ms and __doubles__ with each iteration of the loop. When variable "a" reaches 2048ms, it resets to 1, creating an odd repeating LED blink pattern. The LED blink pattern must turn on and off with the same delay at __each loop iteration__. Could you identify where the errors are and make the necessary changes so that the code works as intended?
 
 > [!IMPORTANT]
 > Include a printf statement to monitor the variable "a". You might need to modify the CMake file to allow printf to work on the blink example.
+
