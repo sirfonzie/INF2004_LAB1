@@ -38,31 +38,33 @@ The most important documents of an embedded system are, among others, datasheets
 
 There are various [methods](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) (see chapters 2 and 9) to setup the development environment for the pico in C using the Pico SDK, depending on what OS you are using on your PC/laptop. However, if you are using Windows OS, the easiest way is to download and install [this](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe) tool.
 
-Ensure that you selected the right application when starting the Visual Studio Code, as two variations might be installed on your laptop. The icon should look as follows:
-
-![Screenshot of Pico - Visual Studio Code](/img/pico_vsc.png)
-
 Visual Studio Code will ask if you want to configure the pico-examples project when it is first opened; click *Yes* on that prompt to proceed. You will then be prompted to select a kit -- select the *Pico ARM GCC - Pico SDK Toolchain with GCC arm-none-eabi* entry. 
 
 ## **BUILDING AN EXAMPLE**
 
-Once Visual Studio Code (VSCode) is started, click the CMake icon and select the sample code you want to work on. In this example, we will be using the [Hello World](https://github.com/raspberrypi/pico-examples/tree/master/hello_world/usb) example. The following [video](https://www.youtube.com/watch?v=NPwoflT_bB0) demonstrates how you get started with VSCode. Note that we are using the hello_usb version of the code. This allow the USB connection between the pico and the PC/laptop to become a virtual uart connection, which can be used together with printf (for debugging purposes).
+Ensure you selected the right application when starting the Visual Studio Code, as two variations might be installed on your laptop. The icon should look as follows:
+
+![Screenshot of Pico - Visual Studio Code](/img/pico_vsc.png)
+
+Once "Pico - Visual Studio Code" (VSCode) is started, click the [CMake](/img/cmake.png) icon and select the sample code you want to work on. In this example, we will use the [Hello World](https://github.com/raspberrypi/pico-examples/tree/master/hello_world/usb) example. The following [video](https://www.youtube.com/watch?v=NPwoflT_bB0) demonstrates how you get started with VSCode. Note that we are using the hello_usb version of the code. This allows the USB connection between the pico and the PC/laptop to become a virtual UART connection, which can be used together with printf (for debugging purposes).
 
 Now, try to compile and run the [blink](https://github.com/raspberrypi/pico-examples/tree/master/blink) example.
 
-If you are using the Pico W boards, you must make a small amendment to the CMakeLists.txt file. Include "set(PICO_BOARD pico_w)" to line #11. The following [video](https://www.youtube.com/watch?v=NPwoflT_bB0) demonstrates how to make the changes and build a [blink](https://github.com/raspberrypi/pico-examples/tree/master/pico_w/wifi/blink) example for the Pico w. 
+If you are using the Pico W boards, you must make a small amendment to the CMakeLists.txt file. Include "set(PICO_BOARD pico_w)" to line #11. The following [video](https://www.youtube.com/watch?v=sTNtLkoHN58) demonstrates how to make the changes and build a [blink](https://github.com/raspberrypi/pico-examples/tree/master/pico_w/wifi/blink) example for the Pico W. 
+
+![Screenshot of Pico - Visual Studio Code](/img/picow_support.png)
 
 > [NOTE]
 > The normal blink example will only work on a standard Pico (without wireless). This is because the Pico W LED is connected to the WiFi SoC and not directly to the RP2040.
 
 ## **DOWNLOADING FIRMWARE INTO THE PICO**
 
-Depending on your preferences and requirements, there are several methods to upload firmware onto a Raspberry Pi Pico microcontroller board. Here is a brief overview of two of the most common methods:
+Depending on your preferences and requirements, several methods exist to upload firmware onto a Raspberry Pi Pico microcontroller board. Here is a brief overview of two of the most common methods:
 
 1. **Drag and Drop (Mass Storage Device):**
    - The Raspberry Pi Pico has a built-in feature that makes it appear as a mass storage device when connected to a computer via USB.
    - To get the board in bootloader mode ready for the firmware update, hold down the BOOTSEL button while plugging the board into USB. You can only release the button once you connect the pico to the PC/laptop properly.
-   - Drag and drop a UF2 file onto the Pico's virtual drive to upload firmware using this method.
+   - Drag and drop a UF2 file onto Pico's virtual drive to upload firmware using this method.
    - This is a beginner-friendly method and doesn't require any additional software.
 
 3. **Using JTAG/SWD (For Advanced Users):**
