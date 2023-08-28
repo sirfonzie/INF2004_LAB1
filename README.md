@@ -40,6 +40,9 @@ There are various [methods](https://datasheets.raspberrypi.com/pico/getting-star
 
 Visual Studio Code will ask if you want to configure the pico-examples project when it is first opened; click *Yes* on that prompt to proceed. You will then be prompted to select a kit -- select the *Pico ARM GCC - Pico SDK Toolchain with GCC arm-none-eabi* entry. 
 
+> [NOTE]
+> Please restart your PC/laptop (multiple times) after installing the SDK. This resolved many first-time compile error issues that were brought up to me. :)
+
 ## **BUILDING AN EXAMPLE**
 
 Ensure you selected the right application when starting the Visual Studio Code, as two variations might be installed on your laptop. The icon should look as follows:
