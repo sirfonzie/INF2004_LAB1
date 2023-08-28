@@ -38,6 +38,9 @@ The most important documents of an embedded system are, among others, datasheets
 
 There are various [methods](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) (see chapters 2 and 9) to setup the development environment for the pico in C using the Pico SDK, depending on what OS you are using on your PC/laptop. However, if you are using Windows OS, the easiest way is to download and install [this](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe) tool.
 
+Do ensure that you selected the right application when starting the Visual Studio Code as there might be two variations installed on your laptop.
+![Screenshot of Pico - Visual Studio Code]([https://github.com/sirfonzie/INF2004_LAB1/blob/main/img/pico_vsc.png])
+
 Visual Studio Code will ask if you want to configure the pico-examples project when it is first opened; click *Yes* on that prompt to proceed. You will then be prompted to select a kit -- select the *Pico ARM GCC - Pico SDK Toolchain with GCC arm-none-eabi* entry. 
 
 ## **BUILDING AN EXAMPLE**
