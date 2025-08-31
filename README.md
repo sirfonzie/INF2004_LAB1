@@ -1,12 +1,12 @@
 # LAB 1: Microcontroller and its Development Environment
 
 **OBJECTIVES**
-- To setup and get you familiarised with the development environment for Raspberry Pi Pico.
+- To setup and get you familiarised with the development environment for Raspberry Pi Pico W.
 - To get you familiarised with the Raspberry Pi Pico development board.
 
 **EQUIPMENT** 
 1.	A laptop that has the Pico C/C++ SDK installed
-2.	Raspberry Pico or the wireless variant
+2.	Raspberry Pi Pico or Raspberry Pi Pico W
 3.	Micro-USB Cable 
 
 > [NOTE]
@@ -14,38 +14,130 @@
 
 ## **INTRODUCTION** 
 
-Programming an embedded system requires a deep-level understanding of the embedded processor architecture, the development environment tool, and the hardware interfaced with the embedded system. In this laboratory session, you will be introduced to the basic tools and how they can be used to aid your understanding of software development and more importantly, to help you build your software. Programming for an embedded system differs greatly from programming on a desktop computer. The main differences are the limited resource constraints in terms of the program code and RAM and the overall computation performance of an embedded system. For instance, our RP2040 microcontroller only provides 256KB of SRAM memory space. A 16MB Flash memory is added to the board and externally connected to the RP2040. Moreover, the various software components discussed in the lecture will be observed in  this session. At this point, you should  be familiar with  the fundamentals of C programming. You are encouraged to brush up on it if you still need to. Do revise ALL the fundamentals of C programming covered in the following [site](https://www.cprogramming.com/tutorial/c-tutorial.html). This will prepare you for the subsequent lab sessions and make this subject more enjoyable. In addition, please brush up on the following:
+Programming an embedded system requires a deep-level understanding of the embedded processor architecture, the development environment tool, and the hardware interfaced with the embedded system. In this laboratory session, you will be introduced to the basic tools and how they can be used to aid your understanding of software development and, more importantly, to help you build your software. Programming for an embedded system differs significantly from programming on a desktop computer. The main differences are the limited resource constraints in terms of the program code and RA,M and the overall computation performance of an embedded system. For instance, our RP2040 microcontroller only provides 256KB of SRAM memory space. A 16MB Flash memory is added to the board and externally connected to the RP2040. Also, the various software components discussed in the lecture will be observed in  this session. At this point, you should  be familiar with  the fundamentals of C programming. You are encouraged to review it if you still need to. Do revise ALL the fundamentals of C programming covered in the following [site](https://www.cprogramming.com/tutorial/c-tutorial.html). This will prepare you for the subsequent lab sessions and make this subject more enjoyable. In addition, please brush up on the following:
 - “Numeral Systems” (e.g. binary, decimal, hexadecimal, etc)
 - “Ordering Consideration” (e.g. endianness, MSB, LSB, etc)
 
 ## **RASPBERRY PI PICO** 
 
-In this lab session, we learned about the development platform Raspberry Pico and the Pico C/C++ SDK used throughout all lab sessions. We will also familiarise you with concepts like direct register access, polling, and serial communication. The following introduction should give a broad overview of the working environment, but it is optional to understand all the details to complete this laboratory. 
+In this lab session, we learned about the Raspberry Pi Pico development platform and the Pico C/C++ SDK, which is used throughout all lab sessions. We will also familiarise you with concepts like direct register access, polling, and serial communication. The following introduction provides a broad overview of the working environment; however, it is not necessary to understand all the details to complete this laboratory. 
 
-The Raspberry Pi Pico is an affordable microcontroller board developed by the Raspberry Pi Foundation, ideal for electronics projects. It features a dual-core ARM Cortex-M0+ processor, 26 GPIO pins, and supports multiple programming languages. However, it lacks built-in wireless connectivity. The Raspberry Pi Pico Wireless (Pico W) is an enhanced version of the Pico, with built-in Wi-Fi and Bluetooth. This makes it suitable for IoT and wireless communication projects while maintaining compatibility with Pico's programming languages and GPIO pins.
+The Raspberry Pi Pico is an affordable microcontroller board developed by the Raspberry Pi Foundation, ideal for electronics projects. It features a dual-core ARM Cortex-M0+ processor, 26 GPIO pins, and supports multiple programming languages. However, it lacks built-in wireless connectivity. The Raspberry Pi Pico Wireless (Pico W) is an enhanced version of the Raspberry Pi Pico, featuring built-in Wi-Fi and Bluetooth. This makes it suitable for IoT and wireless communication projects while maintaining compatibility with Pico's programming languages and GPIO pins.
 
 The Raspberry Pi Pico family currently consists of four boards: Raspberry Pi Pico, Pico H, Pico W, and Pico WH.
 
-The following is the pin out for the Raspberry Pi Pico
+The following is the pinout for the Raspberry Pi Pico
 ![Screenshot of a Raspberry Pi Pico](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg)
 
-The following is the pin out for the Raspberry Pi Pico W
+The following is the pinout for the Raspberry Pi Pico W
 ![Screenshot of a Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg)
 
-The most important documents of an embedded system are, among others, datasheets, user guides, technical reference manuals, application notes, errata or schematics. Therefore, every embedded system comes with many documentation files. All the necessary files for this lab and subsequent labs can be found on the Raspberry Foundation site and supplementary documents will be provided on the course xsite website. It is essential to have access to all parts of the documentation to use the functionality of an embedded system to its fullest extent. Details of the hardware can be found [here](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html).
+The most important documents of an embedded system are, among others, datasheets, user guides, technical reference manuals, application notes, errata and schematics. Therefore, every embedded system comes with many documentation files. All the necessary files for this lab and subsequent labs can be found on the Raspberry Foundation site and supplementary documents will be provided on the course xSITe website. It is essential to have access to all parts of the documentation to use the functionality of an embedded system to its fullest extent. Details of the hardware can be found [here](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html).
 
-## **SETTING UP PICO SDK**
+---
+
+## **Step 1: Updating Dependencies**
+
+### **Raspberry Pi OS and Windows**
+No additional dependencies are required.
+
+### **Linux**
+Most Linux distributions come with the necessary dependencies preinstalled. However, if required, install the following:
+- Python 3.9 or later
+- Git
+- Tar
+- A native C and C++ compiler (GCC supported)
+
+Run the following command to install missing dependencies:
+```bash
+sudo apt install python3 git tar build-essential
+```
+
+### **macOS**
+To install the required dependencies, run:
+```bash
+xcode-select --install
+```
+This installs:
+- Git
+- Tar
+- A native C and C++ compiler (GCC and Clang supported)
+
+---
+
+## **Step 2: Setting Up the Pico SDK**
+Ensure your system has the following tools installed:
+- **CMake**: For generating build files.
+- **GNU Make**: For compiling.
+- **ARM GCC Toolchain**: For cross-compilation.
+
+Install the Pico SDK and necessary tools:
+```bash
+sudo apt install cmake
+sudo apt install make
+sudo apt install gcc-arm-none-eabi
+```
+
+Clone and initialize the Pico SDK:
+```bash
+git clone https://github.com/raspberrypi/pico-sdk.git
+cd pico-sdk
+git submodule update --init
+cd ..
+```
+
+---
+
+## **Step 3: Compiling and Running Your Files**
+Once the Pico SDK is installed, follow these steps to compile and flash your files to the Pico W.
+
+1. **Open a terminal.**
+2. **Navigate to the directory** where your project files are located.
+3. **Create a build directory:**
+   ```bash
+   mkdir build
+   cd build
+   ```
+4. **Generate build files and compile:**
+   ```bash
+   cmake ..
+   make
+   ```
+5. **Flash your compiled file to the Pico W:**
+   ```bash
+   cp build/your_file.uf2 /media/your_username/RPI-RP2
+   ```
+   Alternatively, you can **drag and drop** the UF2 file onto the Pico W drive in your file manager.
+
+---
+
+## **Optional: Using Visual Studio Code**
+You can also use the **Visual Studio Code Pico W extension** to build and flash your files.
+
+### **Steps:**
+1. **Open Visual Studio Code.**
+2. Ensure the [**Pico W extension**](/img/raspberry_pico_ext.png) is installed.
+3. Click on the [**Pico W icon**](/img/ext_icon.png) in the sidebar.
+4. Click on [**"New Project From Example"**](/img/project_example.png) and select blinky as your first project follow the setup instructions.
+5. Click on the **"Build"** button to compile your files.
+6. Click on the **"Flash"** button to upload your files to the Pico W.
+
+> **Note:** The initial project build may take some time, but subsequent builds will be much faster.
+
+---
+
+## **Alternative: Using Visual Studio Code**
 
 There are various [methods](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) (see chapters 2 and 9) to setup the development environment for the pico in C using the Pico SDK, depending on what OS you are using on your PC/laptop. However, if you are using Windows OS, the easiest way is to download and install [this](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe) tool.
 
 Visual Studio Code will ask if you want to configure the pico-examples project when it is first opened; click *Yes* on that prompt to proceed. You will then be prompted to select a kit -- select the *Pico ARM GCC - Pico SDK Toolchain with GCC arm-none-eabi* entry. 
 
 > [NOTE]
-> Please restart your PC/laptop (multiple times) after installing the SDK. This resolved many first-time compile error issues that were brought up to me. :)
+> Please restart your PC/laptop (multiple times) after installing the SDK. This resolved many first-time compilation error issues that were brought to my attention. :)
 
 ## **BUILDING AN EXAMPLE**
 
-Ensure you selected the right application when starting the Visual Studio Code, as two variations might be installed on your laptop. The icon should look as follows:
+Ensure you select the right application when starting Visual Studio Code, as two variations might be installed on your laptop. The icon should look as follows:
 
 ![Screenshot of Pico - Visual Studio Code](/img/pico_vsc.png)
 
@@ -62,7 +154,7 @@ If you are using the Pico W boards, you must make a small amendment to the CMake
 
 ## **DOWNLOADING FIRMWARE INTO THE PICO**
 
-Depending on your preferences and requirements, several methods exist to upload firmware onto a Raspberry Pi Pico microcontroller board. Here is a brief overview of two of the most common methods:
+Depending on your preferences and requirements, several methods are available to upload firmware to a Raspberry Pi Pico microcontroller board. Here is a brief overview of two of the most common methods:
 
 1. **Drag and Drop (Mass Storage Device):**
    - The Raspberry Pi Pico has a built-in feature that makes it appear as a mass storage device when connected to a computer via USB.
@@ -78,19 +170,27 @@ Depending on your preferences and requirements, several methods exist to upload 
 
 **In this lab, we will use method #1 (Drag and Drop).**
 
+## **Optional:**
+You can also use a VM which has everything preinstalled and configured. It is available in the repo with the installer and also the VM image. Please ensure that you have 40 GB of free space on your hard drive. Vmware fusion is for mac users and vmware workstation for windows users, download the correct version for your system. 
+
+Once u have installed the VMware software, place the image in the virtual machines folder and click on scan to get it to recognise it. Then, click on the image and select 'Import'. Once the VM is imported, click on the VM and click on Power On. The password is password.
+
+## **Troubleshotting:**
+If you encounter a 'build not found' error, ensure that the Pico SDK is correctly cloned and initialised. If the issue persists, check the path in the CMakeLists.txt file.
+
+
 ## **THE BIG PICTURE**
-The figure below illustrates how the entire procedure works.
+The figure below illustrates the entire procedure.
 ![Screenshot of Pico - Visual Studio Code](/img/overview.png)
 
 ## **TASK**
 
 In this [basic code](basic.c) example, we embark on a journey to understand various types of operators in the C programming language. By executing this code, we gain insights into arithmetic, relational, logical, and bitwise operators, each playing a distinct role in manipulating and evaluating data.
 
-
 ## **EXERCISE**
 
 This [blinky code](blinky.c) is supposed to blink an LED connected to the GPIO pin. The LED blinks at a rate determined by the "a" variable, which starts at 1 ms and __doubles__ with each iteration of the loop. When variable "a" reaches 2048ms, it resets to 1, creating an odd repeating LED blink pattern. The LED blink pattern must turn on and off with the same delay at __each loop iteration__. Could you identify where the errors are and make the necessary changes so that the code works as intended?
 
 > [!IMPORTANT]
-> Include a printf statement to monitor the variable "a". You might need to modify the CMake file to allow printf to work on the blink example. Look at the CMake file in the Hello_World example to glean some insights into this.
+> Include a printf statement to monitor the variable "a". You might need to modify the CMake file to allow printf to work on the blink example. Refer to the CMake file in the Hello_World example for insights into this.
 
