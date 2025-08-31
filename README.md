@@ -156,7 +156,8 @@ If you are using the Pico W boards, you must make a small amendment to the CMake
 
 Depending on your preferences and requirements, several methods are available to upload firmware to a Raspberry Pi Pico microcontroller board. Here is a brief overview of two of the most common methods:
 
-<img width="960" height="719" alt="image" src="https://github.com/user-attachments/assets/250979ce-ff2e-40d9-928f-b47f1c8ea792" />
+<img width="835" height="625" alt="image" src="https://github.com/user-attachments/assets/3d1be0db-e686-44a9-ab1c-2460425ecf4b" />
+
 
 1. **Drag and Drop (Mass Storage Device):**
    - The Raspberry Pi Pico has a built-in feature that makes it appear as a mass storage device when connected to a computer via USB.
@@ -183,7 +184,8 @@ If you encounter a 'build not found' error, ensure that the Pico SDK is correctl
 
 ## **THE BIG PICTURE**
 The figure below illustrates the entire procedure.
-![Screenshot of Pico - Visual Studio Code](/img/overview.png)
+<img width="1946" height="1071" alt="image" src="https://github.com/user-attachments/assets/22ae2238-e2c2-44bd-8dfe-8d28bafa4e48" />
+
 
 ## **TASK**
 
