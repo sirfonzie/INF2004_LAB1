@@ -111,7 +111,7 @@ Once the Pico SDK is installed, follow these steps to compile and flash your fil
 
 ---
 
-## **Optional: Using Visual Studio Code**
+## **Optional: Using Visual Studio Code Extension**
 You can also use the **Visual Studio Code Pico W extension** to build and flash your files.
 
 ### **Steps:**
