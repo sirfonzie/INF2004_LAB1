@@ -156,6 +156,8 @@ If you are using the Pico W boards, you must make a small amendment to the CMake
 
 Depending on your preferences and requirements, several methods are available to upload firmware to a Raspberry Pi Pico microcontroller board. Here is a brief overview of two of the most common methods:
 
+<img width="960" height="719" alt="image" src="https://github.com/user-attachments/assets/250979ce-ff2e-40d9-928f-b47f1c8ea792" />
+
 1. **Drag and Drop (Mass Storage Device):**
    - The Raspberry Pi Pico has a built-in feature that makes it appear as a mass storage device when connected to a computer via USB.
    - To get the board in bootloader mode ready for the firmware update, hold down the BOOTSEL button while plugging the board into USB. You can only release the button once you connect the pico to the PC/laptop properly.
