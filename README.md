@@ -78,12 +78,13 @@ sudo apt install make
 sudo apt install gcc-arm-none-eabi
 ```
 
-Clone and initialize the Pico SDK:
+Clone and initialize the Pico SDK & Pico Examples:
 ```bash
 git clone https://github.com/raspberrypi/pico-sdk.git
 cd pico-sdk
 git submodule update --init
 cd ..
+git clone -b master https://github.com/raspberrypi/pico-examples.git
 ```
 
 ---
@@ -92,18 +93,22 @@ cd ..
 Once the Pico SDK is installed, follow these steps to compile and flash your files to the Pico W.
 
 1. **Open a terminal.**
-2. **Navigate to the directory** where your project files are located.
-3. **Create a build directory:**
+2. **Set the environment path for the Pico SDK**
+   ```bash
+   export PICO_SDK_PATH=/home/username/pico_path/pico-sdk
+   ```
+3. **Navigate to the directory** where your project files are located.
+4. **Create a build directory:**
    ```bash
    mkdir build
    cd build
    ```
-4. **Generate build files and compile:**
+5. **Generate build files and compile:**
    ```bash
-   cmake ..
+   cmake -DPICO_BOARD=pico_w ..
    make
    ```
-5. **Flash your compiled file to the Pico W:**
+6. **Flash your compiled file to the Pico W:**
    ```bash
    cp build/your_file.uf2 /media/your_username/RPI-RP2
    ```
