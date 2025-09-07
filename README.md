@@ -205,7 +205,7 @@ Visual Studio Code will ask if you want to configure the pico-examples project w
    echo 'PICO_BOARD=pico_w' >> ~/.zshrc
    ```
 
-11. Open pico_examples folder: Go to **"File->Open Folder"**, locate the folder. ie. "/users/<YourName>/pico/pico-examples".
+11. Open pico_examples folder: Go to **"File->Open Folder"**, locate the folder. ie. "/users/username/pico/pico-examples".
 You will then be prompted to select a kit -- select the *arm-none-eabi-gcc* entry.
 
 ## **BUILDING AN EXAMPLE**
