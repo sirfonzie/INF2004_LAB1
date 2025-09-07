@@ -54,6 +54,8 @@ sudo apt install python3 git tar build-essential
 ```
 
 ### **macOS**
+*The steps described for macOS are extracted from this [guide](https://www.eldelto.net/articles/raspberry-pi-pico-setup-for-macos).*
+
 To install the required dependencies, run:
 ```bash
 xcode-select --install
@@ -133,12 +135,78 @@ You can also use the **Visual Studio Code Pico W extension** to build and flash 
 
 ## **Alternative: Using Visual Studio Code**
 
-There are various [methods](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) (see chapters 2 and 9) to setup the development environment for the pico in C using the Pico SDK, depending on what OS you are using on your PC/laptop. However, if you are using Windows OS, the easiest way is to download and install [this](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe) tool.
+There are various [methods](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) (see chapters 2 and 9) to setup the development environment for the pico in C using the Pico SDK, depending on what OS you are using on your PC/laptop. 
+
+**Windows OS**
+
+1. Download and install [this](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe) tool.
+
+2. Launch Pico Visual Studio Code: use the Windows search and type **"pico"** to locate the application.
+
+3. Open pico_examples folder: Go to **"File->Open Folder"**, locate the folder. ie. "C:/Users/<YourName>/Documents/Pico-v1.5.0/pico_examples"
 
 Visual Studio Code will ask if you want to configure the pico-examples project when it is first opened; click *Yes* on that prompt to proceed. You will then be prompted to select a kit -- select the *Pico ARM GCC - Pico SDK Toolchain with GCC arm-none-eabi* entry. 
 
 > [NOTE]
 > Please restart your PC/laptop (multiple times) after installing the SDK. This resolved many first-time compilation error issues that were brought to my attention. :)
+
+**macOS**
+
+1. Download "Visual Studio Code.app" from [here](https://code.visualstudio.com/download). *Drag "Visual Studio Code.app" into the Applications folder.*
+
+2. Install all required dependencies:
+   ```bash
+   brew install gcc-arm-embedded libusb make cmake git
+   ```
+   
+3. Create a new folder called **pico** to contain all related tools:
+   ```bash
+   mkdir pico
+   ```
+
+4. Checkout the **pico-sdk** from Github:
+   ```bash
+   cd pico
+   git clone https://github.com/raspberrypi/pico-sdk.git
+   ``` 
+
+5. Fetch all referenced submodules:
+   ```bash
+   cd pico-sdk
+   git submodule update --init
+   ```  
+
+6. Checkout the **pico-examples** from Github:
+   ```bash
+   cd ..
+   git clone https://github.com/raspberrypi/pico-examples.git
+   ```
+
+7. Delete the **build** folder inside pico-examples (skip this step if this is a fresh setup).:
+   ```bash
+   cd pico_examples
+   rm -rf build
+   ```
+
+8. Set two environment variables that are required by the build process
+   ```bash
+   export PICO_SDK_PATH=/users/<YourName>/pico/pico-sdk
+   export PICO_BOARD=pico_w
+   ```
+
+9. Launch Pico Visual Studio Code from terminal (to inherit terminal environment variables):
+   ```bash
+   /Applications/Visual Code Studio.app/Contents/Resources/app/bin/code
+   ```
+
+10. Ensures environment variables are automatically applied in new terminal sessions.
+   ```bash
+   echo 'PICO_SDK_PATH=/users/<YourName>/pico/pico-sdk' >> ~/.zshrc
+   echo 'PICO_BOARD=pico_w' >> ~/.zshrc
+   ```
+
+11. Open pico_examples folder: Go to **"File->Open Folder"**, locate the folder. ie. "/users/<YourName>/pico/pico-examples".
+You will then be prompted to select a kit -- select the *arm-none-eabi-gcc* entry.
 
 ## **BUILDING AN EXAMPLE**
 
