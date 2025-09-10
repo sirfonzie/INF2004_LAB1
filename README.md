@@ -196,7 +196,7 @@ Visual Studio Code will ask if you want to configure the pico-examples project w
 
 9. Launch Pico Visual Studio Code from terminal (to inherit terminal environment variables):
    ```bash
-   /Applications/Visual Code Studio.app/Contents/Resources/app/bin/code
+   /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code
    ```
 
 10. Ensures environment variables are automatically applied in new terminal sessions.
